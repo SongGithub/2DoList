@@ -1,0 +1,65 @@
+{% extends 'to_do_list_app/base.html' %}
+{% block header %}
+<style>
+button
+{
+position:relative;
+right:10px;
+top:10px;
+}
+</style>
+
+<title>View for items with in the category</title>
+{% endblock header %}
+
+{% block content %}
+<div>
+<h1>View for items with in the category of :  {{ slug }}</h1> 
+
+<table class="table table-striped ">
+<tr class="info">
+    <!-- <td></td> -->
+    <th>Item name</th>
+    <th>Item nickname</th>
+    <th>Desciption</th>
+    <th>Due Date</th>
+    <th>Priority</th>
+    <th>Complete Status</th>    
+    <th>Delete?</th>
+</tr>
+{% for item in Item_List %}
+<tr>
+    <!-- <td>{{ item.category }}</td> -->
+    <!-- <td>{{ item.Name_item }}</td> -->
+    <td>
+        <a href="{% url 'manage-item' item.slug %}" >
+            {{item}}
+        </a>
+    </td>
+    <td>{{ item.slug }}</td>
+    <td>{{ item.Description }}</td>
+    <td>{{ item.Due_date }}</td>
+    <td>{{ item.get_Priority_display }}</td>
+    <td>{{ item.get_CompleteStatus_display }}</td>
+    <td>
+        <form class="form-group" role="form" action="{% url "Delete_Item" slug=item.slug %}" method="post">
+            {%csrf_token%}
+            <input type="submit" class="btn btn-primary btn-lg btn-info" value="Delete"/>
+        </form>
+    </td>
+</tr>
+
+{% endfor %}
+</table>
+
+<a href='Add' ><input type="button" class="btn btn-info" 
+    value="Add another item?" style="margin-top:300px"></a>
+
+<!-- <a href="{% url 'Category-summary-view' %}" class="btn btn-info
+">Back</a> -->
+
+<a href="{% url 'Category-summary-view' %}" class="btn btn-info
+">Back</a>
+
+</div>
+{% endblock content %}

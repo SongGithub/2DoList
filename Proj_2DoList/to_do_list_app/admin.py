@@ -30,8 +30,18 @@ admin.site.register(Category, CategoryAdmin)
 # admin.site.register(Category, CategoryAdmin)
 
 
-################
-###Easy way#####
-################
-admin.site.register(Item)
+####################
+###The Easy way#####
+####################
+# admin.site.register(Item)
 #admin.site.register(Category)
+
+class ItemAdmin(admin.ModelAdmin):
+    list_display=(
+        'Name_item',
+        'category',
+        'Priority',
+        'Due_date',
+        'CompleteStatus',
+        )
+admin.site.register(Item, ItemAdmin)

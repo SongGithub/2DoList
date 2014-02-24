@@ -1,12 +1,9 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
-admin.autodiscover()
+from to_do_list_app import views
+admin.autodiscover()#this give rights to edit in admin page
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'Proj_2DoList.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
+    url(r'^todolist/', include('to_do_list_app.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
