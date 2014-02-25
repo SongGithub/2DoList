@@ -5,18 +5,19 @@ from to_do_list_app.models import Category
 from to_do_list_app.models import Item
 
 
-class ItemInLine(admin.TabularInline): 
+class ItemInLine(admin.TabularInline):
 #Tabled way of ordering
-    model=Item
-    extra=3
+    model = Item
+    extra = 3
+
 
 class CategoryAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields':['Name_category']}),
-        ('What is it about',{'fields':['Description_category']})
+        (None, {'fields': ['Name_category']}),
+        ('What is it about', {'fields': ['Description_category']})
         ]
-    inlines=[ItemInLine]
-    list_display=(
+    inlines = [ItemInLine]
+    list_display = (
         'Name_category',
         'Description_category')
     # list_filter=['Due_date']
@@ -37,7 +38,7 @@ admin.site.register(Category, CategoryAdmin)
 #admin.site.register(Category)
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display=(
+    list_display = (
         'Name_item',
         'category',
         'Priority',

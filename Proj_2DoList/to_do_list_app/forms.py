@@ -4,14 +4,15 @@ from to_do_list_app.models import Item
 from to_do_list_app.models import Category
 import datetime
 
+
 # form for item management purpose
 class ItemForm(ModelForm):
-    Due_date=DateTimeField(widget=AdminDateWidget)
-    Create_date=DateTimeField(widget=AdminDateWidget)
-    
+    Due_date = DateTimeField(widget=AdminDateWidget)
+    Create_date = DateTimeField(widget=AdminDateWidget)
+
     class Meta:
         model = Item
-        fields= [
+        fields = [
             'Due_date',
             'Create_date',
             'Name_item',
@@ -21,9 +22,10 @@ class ItemForm(ModelForm):
             'CompleteStatus'
         ]
 
+
 # form for add item purpose
 class AddItemForm(ModelForm):
-    Due_date=DateTimeField(widget=AdminDateWidget)
+    Due_date = DateTimeField(widget=AdminDateWidget)
     #WANTED
     # auto define current date, and display on the page
     #auto define current category
@@ -40,24 +42,26 @@ class AddItemForm(ModelForm):
             obj.save()
         return obj
 #####################################################
+
     class Meta:
         model = Item
-        fields= [
+        fields = [
             'Due_date',
             'Name_item',
             'Description',
             'Priority',
             # 'category',
         ]
- 
 
-class CategoryForm(ModelForm):  
+
+class CategoryForm(ModelForm):
     class Meta:
         model = Category
-        fields= [
+        fields = [
             'Name_category',
             'Description_category'
         ]
+
 
 class AddCategoryForm(ModelForm):
         class Meta:
