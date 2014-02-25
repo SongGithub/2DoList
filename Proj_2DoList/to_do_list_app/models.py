@@ -13,12 +13,11 @@ PRIORITY_CHOICES = (
 CompleteStatus_CHOICES=(
     (False, 'Not Yet'),
     (True, 'Completed')
-
-    )
+)
 
 
 class Category(models.Model):
-    slug=models.SlugField(blank=True)
+    slug=models.SlugField(unique=True)
     Name_category=models.CharField(max_length=20)
     Description_category=models.CharField(max_length=100)
 
@@ -36,16 +35,18 @@ class Category(models.Model):
 
 
 class Item(models.Model):
+    # category=models.ForeignKey(Category,blank=True,null=True)
     category=models.ForeignKey(Category)
-    slug=models.SlugField(blank=True)
+    slug=models.SlugField(unique=True)
     Name_item=models.CharField(max_length=20)
     Description=models.CharField(max_length=100)
-    Create_date=models.DateTimeField('date created')
-    Due_date=models.DateTimeField('date due')
-        # Priority=models.IntegerField(default=0)
+ 
+    Create_date=models.DateTimeField('date created',null=True,blank=True)
+    Due_date=models.DateTimeField('date due',null=True,blank=True)
+ 
     Priority=models.IntegerField(choices=PRIORITY_CHOICES, default=0)
     CompleteStatus=models.BooleanField(choices=CompleteStatus_CHOICES,default=False)
-    
+
     class Meta:
         verbose_name_plural='Items'
 
@@ -54,6 +55,11 @@ class Item(models.Model):
         # turns "Some Category Name" into "some-category-name"
         self.slug = slugify(self.Name_item)
         super(Item, self).save(*args, **kwargs)
-
+        ''' On save, update timestamps '''
+       
+        self.Create_date = datetime.datetime.today()
+        # self.Due_date = datetime.datetime.today()
+        return super(Item, self).save(*args, **kwargs)
+    
     def __unicode__(self):
         return self.Name_item

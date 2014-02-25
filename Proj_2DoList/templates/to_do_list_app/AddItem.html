@@ -7,14 +7,11 @@
 
 
 {% block content %}
-<h1>Add Item</h1>
+<h1>Add Item, current category= {{kwargs  }}</h1>
 <form class="form-group" role="form" action="." method="post">{%csrf_token%}
 {{form.as_p}}
 
-
 <input type="submit" class="btn btn-primary btn-lg btn-info" value="Create me"/>
 </form>
-
-
 
 {% endblock content %}

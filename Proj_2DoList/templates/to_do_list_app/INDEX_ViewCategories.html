@@ -6,10 +6,10 @@
 
 <table class="table ">
 <tr class="info">
-<!-- <td></td> -->
     <th>Category name</th>
     <th>Category Desciption(Click Link for editting)</th>
 </tr>
+
 {% for category in Cate_List %}
 <tr>
     <td><a href="{% url 'item-of-category-view' category.slug %}" 
@@ -29,7 +29,7 @@
 
 <!-- <a href= 'managecategory' ><input type="button" class="btn btn-primary" value="Add another Category?" style="margin-top:300px"></a> -->
 
-<a href="{% url 'managecategory' %}" class="btn btn-info
+<a href="{% url 'managecategory' %}" class="btn btn-info style="margin-top:300px"
 ">Add another category ?</a>
 
-{% endblock content %}k
+{% endblock content %}

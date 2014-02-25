@@ -13,7 +13,6 @@ top:10px;
 {% endblock header %}
 
 {% block content %}
-<div>
 <h1>View for items with in the category of :  {{ slug }}</h1> 
 
 <table class="table table-striped ">
@@ -29,11 +28,10 @@ top:10px;
 </tr>
 {% for item in Item_List %}
 <tr>
-    <!-- <td>{{ item.category }}</td> -->
-    <!-- <td>{{ item.Name_item }}</td> -->
     <td>
-        <a href="{% url 'manage-item' item.slug %}" >
-            {{item}}
+        <a href=
+        "{% url 'manage-item' item.slug %}" >
+        {{item}}
         </a>
     </td>
     <td>{{ item.slug }}</td>
@@ -52,14 +50,12 @@ top:10px;
 {% endfor %}
 </table>
 
-<a href='Add' ><input type="button" class="btn btn-info" 
-    value="Add another item?" style="margin-top:300px"></a>
 
-<!-- <a href="{% url 'Category-summary-view' %}" class="btn btn-info
-">Back</a> -->
+<a href='Add' class="btn btn-info" 
+    value="Add another item?" style="margin-top:300px">
+    Add Other Item?</a>
 
-<a href="{% url 'Category-summary-view' %}" class="btn btn-info
-">Back</a>
+<a href="{% url 'Category-summary-view' %}" style="margin-top:200px" class="btn btn-info">
+    Back</a>
 
-</div>
 {% endblock content %}

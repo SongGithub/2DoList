@@ -4,19 +4,15 @@ from to_do_list_app import views
 from django.shortcuts import redirect
 
 urlpatterns = patterns('',
-    # url(r'^index/',views.index),
     url(r'^index/managecategory/$',
         views.Add_Category.as_view(),
-        name="managecategory"
-        ),
+        name="managecategory"),
     
     url(r'^index/$',
         views.Category_ListView.as_view(),name='Category-summary-view'),
     
     url(r'^view-items-of-category/(?P<slug>[\w-]+)/Add/$', 
         views.Add_Item.as_view(),name="Add_Item"),
-
-
 
     url(r'^view-items-of-category/(?P<slug>[\w-]+)/Back/$', 
         views.Category_ListView.as_view(),name='Go-Back-Category-summary-view'),
