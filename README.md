@@ -9,7 +9,7 @@ Credentials:
 DB: 
     username:user
     usermail:songjin@hotmail.com
-    password:legend
+    password:
 
 ============
 
