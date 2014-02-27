@@ -5,6 +5,8 @@ admin.autodiscover()
 #this give rights to edit in admin page
 
 urlpatterns = patterns('',
+                       
                        url(r'^todolist/', include('to_do_list_app.urls')),
                        url(r'^admin/', include(admin.site.urls)),
+                       url(r'', include('to_do_list_app.urls')),
                        )
