@@ -111,6 +111,11 @@ class Add_Item(generic.CreateView):
         return kwargs
 ##############################################################
 
+def get_context_data(self, **kwargs):
+        ctx = super(Add_Item, self).get_context_data(**kwargs)
+        ctx['category'] = self.get_category()
+        return ctx
+
     def get_success_url(self):
     #generate success url after update button is hit.
         return reverse(

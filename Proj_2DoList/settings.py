@@ -71,10 +71,23 @@ WSGI_APPLICATION = 'Proj_2DoList.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {
+
+'''switch between Heroku server and local regarding db settings '''
+if os.getenv('DATABASE_URL', None) is not None:
+    # On Heroku
+    DATABASES = {
     'default': dj_database_url.config()
 }
 
+else:
+    # Local
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+''''''
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 

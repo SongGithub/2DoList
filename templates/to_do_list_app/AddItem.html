@@ -7,7 +7,7 @@
 
 
 {% block content %}
-<h1>Add Item, current category= {{kwargs  }}</h1>
+<h1>Add Item, current category= {{category.slug}}</h1>
 <form class="form-group" role="form" action="." method="post">{%csrf_token%}
 {{form.as_p}}
 
