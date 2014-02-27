@@ -111,7 +111,7 @@ class Add_Item(generic.CreateView):
         return kwargs
 ##############################################################
 
-def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         ctx = super(Add_Item, self).get_context_data(**kwargs)
         ctx['category'] = self.get_category()
         return ctx
