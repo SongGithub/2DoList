@@ -8,5 +8,6 @@ urlpatterns = patterns('',
                        
                        url(r'^todolist/', include('to_do_list_app.urls')),
                        url(r'^admin/', include(admin.site.urls)),
-                       url(r'', include('to_do_list_app.urls')),
-                       )
+                       url(r'', views.Category_ListView.as_view(),
+                            name='Go-Back-Category-summary-view'),
+                      )

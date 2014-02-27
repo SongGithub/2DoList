@@ -9,8 +9,7 @@ urlpatterns = patterns(
         r'^index/managecategory/$',
         views.Add_Category.as_view(),
         name="managecategory"
-    ),
-
+        ),
     url(r'^index/$',
        views.Category_ListView.as_view(),
        name='Category-summary-view'),
@@ -32,9 +31,9 @@ urlpatterns = patterns(
     url(r'^manage-category-of/(?P<slug>[\w-]+)/$',
        views.Manage_Category.as_view(),
        name="manage-category-of"),
-    url(r'',
-       views.Category_ListView.as_view(),
-       name='Category-summary-view'),
+    # url(r'',
+    #    views.Category_ListView.as_view(),
+    #    name='Category-summary-view'),
 )
 
 
