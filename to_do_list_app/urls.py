@@ -13,9 +13,9 @@ urlpatterns = patterns(
     url(r'^index/$',
        views.Category_ListView.as_view(),
        name='Category-summary-view'),
-    url(r'^view-items-of-category/(?P<slug>[\w-]+)/Add/$',
+    url(r'^view-items-of-category/(?P<slug>[\w-]+)/Add',
        views.Add_Item.as_view(), name="Add_Item"),
-    url(r'^view-items-of-category/(?P<slug>[\w-]+)/Back/$',
+    url(r'^view-items-of-category/(?P<slug>[\w-]+)/Back',
        views.Category_ListView.as_view(),
        name='Go-Back-Category-summary-view'),
     url(r'^view-items-of-category/(?P<slug>[\w-]+)/$',
@@ -31,9 +31,9 @@ urlpatterns = patterns(
     url(r'^manage-category-of/(?P<slug>[\w-]+)/$',
        views.Manage_Category.as_view(),
        name="manage-category-of"),
-    # url(r'',
-    #    views.Category_ListView.as_view(),
-    #    name='Category-summary-view'),
+    url(r'',
+       views.Category_ListView.as_view(),
+       name='Category-summary-view'),
 )
 
 
