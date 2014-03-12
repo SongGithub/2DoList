@@ -64,9 +64,9 @@ class CategoryForm(ModelForm):
 
 
 class AddCategoryForm(ModelForm):
-    class Meta:
-        model = Category
-        fields= [
-            'Name_category',
-            'Description_category'
-        ]
+        class Meta:
+            model = Category
+            fields= [
+                'Name_category',
+                'Description_category'
+            ]
