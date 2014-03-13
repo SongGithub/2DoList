@@ -94,7 +94,7 @@ class Item_perCategory_ListView(generic.ListView):
 class Add_Item(generic.CreateView):
     model = Item
     template_name = 'to_do_list_app/AddItem.html'
-    # form_class = AddItemForm
+    form_class = AddItemForm
 
 ###############for category auto-fill#############################
     def get_category(self):
