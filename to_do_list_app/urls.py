@@ -3,6 +3,10 @@ from django.contrib import admin
 from to_do_list_app import views
 from django.shortcuts import redirect
 
+(r'^favicon\.ico$', 
+'django.views.generic.simple.redirect_to', 
+{'url': '/media/favicon.ico'}),
+
 urlpatterns = patterns(
     '',
     url(
