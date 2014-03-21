@@ -14,3 +14,5 @@ urlpatterns = patterns('',
                         views.Category_ListView.as_view(),
                             name='Go-Back-Category-summary-view'),
                       )
+
+

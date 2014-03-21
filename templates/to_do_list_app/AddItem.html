@@ -1,6 +1,5 @@
 {% extends 'to_do_list_app/base.html' %}
 
-
 {% block header %}
 <title>Add item</title>
 {% endblock header %}
@@ -8,10 +7,19 @@
 
 {% block content %}
 <h1>Add Item, current category= {{category.slug}}</h1>
-<form class="form-group" role="form" action="." method="post">{%csrf_token%}
+
+<div class="formdiv">
+
+<form class="form-group" role="form" action="{% url 'Add_Item' slug=category.slug %}" method="post"  >{%csrf_token%}
 {{form.as_p}}
 
+</div>
+
+
+
+
 <input type="submit" class="btn btn-primary btn-lg btn-info" value="Create me"/>
+
 </form>
 
 {% endblock content %}

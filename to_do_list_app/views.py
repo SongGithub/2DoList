@@ -11,11 +11,6 @@ from to_do_list_app.forms import CategoryForm
 from to_do_list_app.forms import AddCategoryForm
 
 
-def helloworld(request, **kwargs):
-#  This function is for testing purpose\
-    return HttpResponse("how ya World")
-
-
 class Category_ListView(generic.ListView):
     model = Category
     template_name = 'to_do_list_app/INDEX_ViewCategories.html'
