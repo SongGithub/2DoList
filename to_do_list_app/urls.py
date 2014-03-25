@@ -3,14 +3,14 @@ from django.contrib import admin
 from to_do_list_app import views
 from django.shortcuts import redirect
 
-(r'^favicon\.ico$', 
-'django.views.generic.simple.redirect_to', 
-{'url': '/media/favicon.ico'}),
+# (r'^favicon\.ico$', 
+# 'django.views.generic.simple.redirect_to', 
+# {'url': '/media/favicon.ico'}),
 
 urlpatterns = patterns(
     '',
     url(
-        r'^index/managecategory/$',
+        r'^managecategory/$',
         views.Add_Category.as_view(),
         name="managecategory"
         ),
@@ -35,9 +35,14 @@ urlpatterns = patterns(
     url(r'^manage-category-of/(?P<slug>[\w-]+)/$',
        views.Manage_Category.as_view(),
        name="manage-category-of"),
-    url(r'',
-       views.Category_ListView.as_view(),
+    url(r'^manage-category-of/(?P<slug>[\w-]+)/Delete/$',
+             views.Category_ListView.as_view(),
        name='Category-summary-view'),
+       # views.Manage_Category.as_view(),
+       # name="manage-category-of"),
+    # url(r'',
+    #    views.Category_ListView.as_view(),
+    #    name='Category-summary-view'),
 )
 
 

@@ -1,16 +1,35 @@
 {% extends 'to_do_list_app/base.html' %}
 
+{% block  page-title %}
+    Adding category: {{slug }}
+{% endblock page-title %}
+
 {% block header %}
 <title>Add Category</title>
 {% endblock header %}
 
 {% block content %}
+<!-- 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10" >
+            <h1>Add Category</h1>
+        </div>
+    </div>
+</div> -->
 
-<h1>Add Category</h1>
+<div class="container" id="add-cate">
+    <div class="row">
+        <div class="form-group" >
+            <form class="form-group" role="form" action="." method="post" placeholder="entering here" >{% csrf_token %}  
+            {{form.as_p}}
 
-<form class="form-group" role="form" action="." method="post">{%csrf_token%}
-{{form.as_p}}
-<input type="submit" class="btn btn-primary btn-lg btn-info" value="Create me"/>
-</form>
+            <input type="text" class="form-control" placeholder="Search">
 
+        </div>
+            <input type="submit" class="btn btn-primary btn-lg btn-info" value="Create me"/>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

@@ -1,12 +1,16 @@
 {% extends 'to_do_list_app/base.html' %}
 
+{% block  page-title %}
+    Adding item in category: {{category.slug }}
+{% endblock page-title %}
+
 {% block header %}
 <title>Add item</title>
 {% endblock header %}
 
 
 {% block content %}
-<h1>Add Item, current category= {{category.slug}}</h1>
+
 
 <div class="formdiv">
 

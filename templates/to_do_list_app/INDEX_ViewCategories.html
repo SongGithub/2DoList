@@ -1,37 +1,51 @@
 {% extends 'to_do_list_app/base.html' %}
 
+{% block  page-title %}
+    Category summary:
+{% endblock page-title %}
 
 {% block content %}
 <h1>Welcome to Song's 'todolist' app</h1> 
-<h2> Category summary: </h2>
-<table class="table ">
-<tr class="info">
-    <th>Category name</th>
-    <th>Category Desciption(Click Link for editting)</th>
-     <th>Delete?</th>
-</tr>
+<div id="indexview">
+<table class="table">
+    <tr class="info">
+        <th>Category name</th>
+        <th>Category Desciption</th>
+        <th>Actions ? </th>
+    </tr>
 
-{% for category in Cate_List %}
-<tr>
-    <td><a href="{% url 'item-of-category-view' category.slug %}" 
-        >{{category}}</a></td>
-    <td><a href="{% url 'manage-category-of' category.slug %}" 
-        >{{category.Description_category}}</a></td>
-    <td>
-        <form class="form-group" role="form" action="{% url "Delete_Category" slug=category.slug %}" method="post">
-            {%csrf_token%}
-            <input type="submit" class="btn btn-primary btn-lg btn-info" value="Delete"/>
-        </form>
-    </td>
+    {% for category in Cate_List %}
+    <tr>
+        <td><a href="{% url 'item-of-category-view' category.slug %}" 
+            >{{category}}</a></td>
+        <td>{{category.Description_category}}</td>
+        <td>
+            <div class="btn-group">
+              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                Actions? <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
 
-<tr>
-{% endfor %}
+                <li>
+                    <a href="{% url "Delete_Category" slug=category.slug %}" type="submit">Delete</a>
+                </li>
+                <li>
+                    <a href="{% url 'manage-category-of' category.slug %}">Edit</a>
+                </li>
+
+                
+              </ul>
+            </div>
+        </td>
+    <tr>
+    {% endfor %}
 </table >
-
-<!-- <a href= 'managecategory' ><input type="button" class="btn btn-primary" value="Add another Category?" style="margin-top:300px"></a> -->
-<div style="padding-top:50px">
-<a href="{% url 'managecategory' %}" class="btn btn-info" 
->Add another category ?</a>
+    <div style="padding-top:50px">
+    <a href="{% url 'managecategory' %}" class="btn btn-info" 
+    >Add another category ?</a>
+    </div>
 </div>
+<!-- <a href= 'managecategory' ><input type="button" class="btn btn-primary" value="Add another Category?" style="margin-top:300px"></a> -->
+
 
 {% endblock content %}
