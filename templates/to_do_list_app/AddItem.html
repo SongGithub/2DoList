@@ -14,16 +14,9 @@
 
 <div class="formdiv">
 
-<form class="form-group" role="form" action="{% url 'Add_Item' slug=category.slug %}" method="post"  >{%csrf_token%}
-{{form.as_p}}
-
+    <form class="form-group" role="form" action="{% url 'Add_Item' slug=category.slug %}" method="post"  >{%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Create Item</button>
+    </form>
 </div>
-
-
-
-
-<input type="submit" class="btn btn-primary btn-lg btn-info" value="Create me"/>
-
-</form>
-
 {% endblock content %}

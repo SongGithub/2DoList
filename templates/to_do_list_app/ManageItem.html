@@ -16,6 +16,7 @@
     <div class="form-managing">
         {{form.as_p}}
     </div>
+    <button type="submit" class="btn btn-success">Update</button>
     <!-- <div>
         <span class="input-group-addon">{{ form.Due_date.label_tag }}</span>
         <input type="text" class="form-control" placeholder="Due_date">
@@ -45,14 +46,13 @@
         <input type="checkbox" class="form-control" >
     </div> -->
 </form>
-    <!--     {% for field in form %}
+<!--         {% for field in form %}
         <div class="input-group">
            {{ field }}
         </div>
-    {% endfor %}
-    <input type="submit" class="btn btn-primary btn-lg btn-info" 
-    value="Update me"/>
-</form> -->
+    {% endfor %} -->
+   
+
 <!-- <div id="addreview" class="review_add">
     <h3>Leave a product review</h3>
     <form id="add_review_form" method="post" action="./#addreview" class="well form-stacked">
@@ -259,9 +259,8 @@
     </form>
 </div> -->
 
-<form class="form-group" role="form" action="{% url "Delete_Item" slug=item.slug %}" method="post">
-    {%csrf_token%}
-    <input type="submit" class="btn btn-primary btn-lg btn-info" value="Delete"/>
+<form class="form-group" role="form" action="{% url "Delete_Item" slug=item.slug %}" method="post">{%csrf_token%}
+    <button type="submit" class="btn btn-danger "> Delete! </button>
 </form>
 
 {% endblock content %}

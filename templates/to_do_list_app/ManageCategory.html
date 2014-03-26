@@ -11,12 +11,7 @@
 
 
 <form class="form-group" role="form" action="." method="post">{%csrf_token%}
-{{form.as_p}}
-
-
-<input type="submit" class="btn btn-primary btn-lg btn-info" 
-value="Update me"/>
-    </form>
-
-
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
 {% endblock content %}
