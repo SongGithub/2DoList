@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 
 
 urlpatterns = patterns('',
+                       
                        url(r'^index/managecategory/$',
                            views.Add_Category.as_view(),
                            name="managecategory"),
@@ -29,6 +30,9 @@ urlpatterns = patterns('',
                        url(r'^manage-category-of/(?P<slug>[\w-]+)/$',
                            views.Manage_Category.as_view(),
                            name="manage-category-of"),
+                       url(r'',
+                          views.Category_ListView.as_view(),
+                           name='Category-summary-view'),
                        )
 
 
