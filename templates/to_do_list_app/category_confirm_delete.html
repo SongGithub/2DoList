@@ -1,0 +1,17 @@
+{% extends 'to_do_list_app/base.html' %}
+{% block  page-title %}
+    Deleting category: {{category.slug }}
+{% endblock page-title %}
+{% block content %}
+
+<div>
+<h1>Warning: The category will be permanently deleted</h1>
+<form class="form-group" role="form" action="{% url "Delete_Category" slug=category.slug %}" method="post">  {%csrf_token%}
+    <input type="submit" class="btn btn-primary btn-lg btn-info" value="Delete"/>
+</form>
+
+</div>
+
+
+
+{% endblock content %}
