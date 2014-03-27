@@ -8,8 +8,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
                        
                        # url(r'^todolist/', include('to_do_list_app.urls')),
-                       url(r'', include('to_do_list_app.urls')),
+                       
                        url(r'^admin/', include(admin.site.urls)),
+                       url(r'^admin$', include(admin.site.urls)),
+                       url(r'', include('to_do_list_app.urls')),
                        # url(r'', 
                        #  # views.helloworld,
                        #  views.Category_ListView.as_view(),
