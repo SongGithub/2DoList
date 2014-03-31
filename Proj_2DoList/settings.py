@@ -97,11 +97,12 @@ else:
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-au'
 
 TIME_ZONE = 'Australia/Melbourne'
-
-USE_I18N = True
+# DATETIME_FORMAT = ('%d-%m-%y %H:%M')
+# DATETIME_FORMAT = ("d M Y")
+USE_I18N = False
 
 USE_L10N = True
 

@@ -17,11 +17,11 @@ class ItemForm(ModelForm):
     # Due_date = DateTimeField(widget=AdminDateWidget)
     # Create_date = DateTimeField(widget=AdminDateWidget)
     # Due_date = DateTimeField(widget=SelectDateWidget)
-    Due_date = DateTimeField(widget=DateTimePicker(options={
-        "format":"YYYY-MM-DD HH:mm"}))
+    Due_date = DateTimeField(input_formats=['%d-%m-%Y %H:%M'],widget=DateTimePicker(options={
+    "format":"DD-MM-YYYY HH:mm","pickSeconds": False}))
     # Create_date = DateTimeField(widget=SelectDateWidget)
-    Create_date = DateTimeField(widget=DateTimePicker(options={
-        "format":"YYYY-MM-DD HH:mm"}))
+    Create_date = DateTimeField(input_formats=['%d-%m-%Y %H:%M'],widget=DateTimePicker(options={
+     "format":"DD-MM-YYYY HH:mm","pickSeconds": False}))
 
     class Meta:
         model = Item
