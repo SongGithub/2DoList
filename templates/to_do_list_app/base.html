@@ -1,10 +1,9 @@
-{% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  {% load staticfiles %}
     {% block header %}
-    <title>To_Do_List_App</title>
+      <title>To_Do_List_App</title>
     {% endblock header %}
 
     <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
@@ -16,9 +15,9 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css'  %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets'   %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css'   %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'to_do_list_app/style.css' %}" />
-    <!-- js files for fancy looking -->
+ 
     <script src="{% static "jquery11/jquery-1.11.0.min.js" %}"></script>
     <script src="{% static "bootstrap/dist/js/bootstrap.min.js" %}"></script>
     <script type="text/javascript" src="/admin/jsi18n/"></script>
@@ -29,73 +28,67 @@
     <script type="text/javascript" src="{% static 'admin/js/actions.js' %}"></script>
     <script type="text/javascript" src="{% static 'admin/js/calendar.js' %}"></script>
     <script type="text/javascript" src="{% static 'admin/js/admin/DateTimeShortcuts.js' %}"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
-<!-- Google Analytics -->
- <script>
-//   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-//   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-//   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-//   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-//   ga('create', 'UA-48669344-2', 'songs-todolist.herokuapp.com');
-//   ga('send', 'pageview');
-// </script>
+      ga('create', 'UA-48669344-2', 'songs-todolist.herokuapp.com');
+      ga('send', 'pageview');
+    </script>
 </head>
 
 <body>
-<div class="container-">
-    <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="//songs-todolist.herokuapp.com">The 2DoList App</a>
-    </div>
+  <div class="container-">
+      <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="//songs-todolist.herokuapp.com">The 2DoList App</a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'Category-summary-view' %}">Home</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{% url 'Category-summary-view' %}">Home</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
 
-      <ul class="nav navbar-nav navbar-middle page-title-nav">
-          {% block page-title %}TITLE{% endblock %}
-      </ul>
+        <ul class="nav navbar-nav navbar-middle page-title-nav">
+            {% block page-title %}TITLE{% endblock %}
+        </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-</div>
-{% block content %} {% endblock %}
+  </div>
+  {% block content %} {% endblock %}
 
-<footer>
-Copyright © 
-<a href="http://songgithub.github.io/pelicanblog/">Song Jin</a> 
-2014</footer>
-
+  <footer>
+  Copyright © 
+  <a href="http://songgithub.github.io/pelicanblog/">Song Jin</a> 
+  2014</footer>
 </body>
 
 </html>
-
-<style></style>

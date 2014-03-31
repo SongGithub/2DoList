@@ -1,0 +1,78 @@
+body
+{
+  margin: 0px 0px 0px 0px;
+}
+.container
+{
+
+}
+
+
+.form-group
+{
+   margin-left:25%;
+   margin-right:100%;
+   width:50%;
+}
+
+.menu 
+{
+  background-color:#FFD700;height:300px;width:300px;text-align:center;float:left
+}
+
+.container-fluid
+{
+  
+}
+
+.page-title-nav
+{
+  font-size:150%;
+  font-style:italic;
+  text-align:center;
+  text-indent:25%;
+}
+#itemviewtable
+{
+  margin-left:10%;
+  margin-right: 10%;
+  /*background-color:yellow;*/
+}
+#indexview
+{
+  margin-left:10%;
+  margin-right: 10%;
+  /*background-color:yellow;*/
+}
+
+
+h1,h2
+{
+  text-align:center;
+}
+
+form
+{
+  align:center;
+}
+
+input.btn btn-primary btn-lg btn-info
+{
+  margin-right: 250px;
+}
+
+a.btn btn-info
+{
+  margin-right: 249px;
+}
+
+footer 
+{
+    clear:both;
+    text-align:center;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    /*background:#6cf;*/
+}

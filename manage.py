@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import flup
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Proj_2DoList.settings")

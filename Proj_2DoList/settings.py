@@ -7,20 +7,26 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
 
+DEBUG= True
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-STATIC_ROOT = 'staticfiles'
+TEMPLATE_DIRS = [
+    os.path.join(BASE_DIR, 'templates'),
+]
+STATIC_ROOT = (
+    # os.path.join(BASE_DIR, 'static'),
+    'public/static'
+)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    '/to_do_list_app/static/',
+    'static/',
 )
-
+ADMIN_MEDIA_PREFIX = '/admin/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -28,11 +34,10 @@ STATICFILES_DIRS = (
 SECRET_KEY = 'c7jazj8y#(iq7l7wz9&%acn3&mqp4$uu&_17+qzu7^^z(g85=_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+# TEMPLATE_DEBUG = True
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = '*'
 
 
 # Application definition
