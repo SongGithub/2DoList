@@ -40,8 +40,9 @@ class ItemForm(ModelForm):
 class AddItemForm(ModelForm):
     # Due_date = DateTimeField(widget=AdminDateWidget)
     # Due_date = DateTimeField(widget=SelectDateWidget)
-    Due_date = DateTimeField(widget=DateTimePicker(options={
-        "format":"YYYY-MM-DD HH:mm"}))
+    
+    Due_date = DateTimeField(input_formats=['%d-%m-%Y %H:%M'],widget=DateTimePicker(options={
+    "format":"DD-MM-YYYY HH:mm","pickSeconds": False}))
     #WANTED
     # auto define current date, and display on the page
     #auto define current category
