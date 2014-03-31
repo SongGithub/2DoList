@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'to_do_list_app',
     'south',
+    'bootstrap3_datetime',
 )
 
 MIDDLEWARE_CLASSES = (

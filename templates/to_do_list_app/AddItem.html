@@ -10,8 +10,7 @@
 
 
 {% block content %}
-
-
+<head>{{ form.media }}</head><!--this is key component to use bootstrap-datetimepicker-->
 <div class="formdiv">
 
     <form class="form-group" role="form" action="{% url 'Add_Item' slug=category.slug %}" method="post"  >{%csrf_token%}

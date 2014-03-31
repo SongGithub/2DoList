@@ -1,9 +1,11 @@
 from django.forms import ModelForm, DateTimeField
-from django.contrib.admin.widgets import AdminDateWidget
+# from django.contrib.admin.widgets import AdminDateWidget
+from bootstrap3_datetime.widgets import DateTimePicker
 from to_do_list_app.models import Item
 from to_do_list_app.models import Category
 import datetime
-import gettext
+
+
 
 from django.contrib.admin import widgets
 from django.forms.extras.widgets import SelectDateWidget
@@ -14,8 +16,12 @@ from django.forms import ModelForm, Form
 class ItemForm(ModelForm):
     # Due_date = DateTimeField(widget=AdminDateWidget)
     # Create_date = DateTimeField(widget=AdminDateWidget)
-    Due_date = DateTimeField(widget=SelectDateWidget)
-    Create_date = DateTimeField(widget=SelectDateWidget)
+    # Due_date = DateTimeField(widget=SelectDateWidget)
+    Due_date = DateTimeField(widget=DateTimePicker(options={
+        "format":"YYYY-MM-DD HH:mm"}))
+    # Create_date = DateTimeField(widget=SelectDateWidget)
+    Create_date = DateTimeField(widget=DateTimePicker(options={
+        "format":"YYYY-MM-DD HH:mm"}))
 
     class Meta:
         model = Item
@@ -33,7 +39,9 @@ class ItemForm(ModelForm):
 # form for add item purpose
 class AddItemForm(ModelForm):
     # Due_date = DateTimeField(widget=AdminDateWidget)
-    Due_date = DateTimeField(widget=SelectDateWidget)
+    # Due_date = DateTimeField(widget=SelectDateWidget)
+    Due_date = DateTimeField(widget=DateTimePicker(options={
+        "format":"YYYY-MM-DD HH:mm"}))
     #WANTED
     # auto define current date, and display on the page
     #auto define current category
