@@ -1,25 +1,41 @@
 body
 {
-  margin: 0px 0px 0px 0px;
+  
 }
 .container
 {
 
 }
 
-
+#headnav
+{
+  /*max-height: 50px*/
+}
+/*
 .form-group
 {
    margin-left:25%;
    margin-right:100%;
    width:50%;
-}
-
-.menu 
+}*/
+.bootstrap-switch
 {
-  background-color:#FFD700;height:300px;width:300px;text-align:center;float:left
+  max-width: 50px;
+  max-height: 50px;
+  width: 100%
+  margin-left:auto;
+  margin-right:auto;
+}
+.checkbox
+{
+  margin-left:auto;
+  margin-right:auto;
 }
 
+.bootstrap-switch-container
+{
+
+}
 .container-fluid
 {
   
@@ -27,7 +43,7 @@ body
 
 .page-title-nav
 {
-  font-size:150%;
+  font-size:100%;
   font-style:italic;
   text-align:center;
   text-indent:25%;
@@ -53,13 +69,9 @@ h1,h2
 
 form
 {
-  align:center;
+  
 }
 
-input.btn btn-primary btn-lg btn-info
-{
-  margin-right: 250px;
-}
 
 a.btn btn-info
 {

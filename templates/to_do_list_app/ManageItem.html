@@ -1,54 +1,33 @@
 {% extends 'to_do_list_app/base.html' %}
-
+{% load bootstrap %}
 {% block  page-title %}
     Managing Item:  {{ slug }}
 {% endblock page-title %}
 
 
-{% block header %}
-<title>Manage item</title>
-{% endblock header %}
+
 {% block content %}
-<head>{{ form.media }}</head><!--this is key component to use bootstrap-datetimepicker-->
+    {% block header %}
+    <title>Manage item</title>
+    {% endblock header %}
+    
+    <head>{{ form.media }}</head><!--this is key component to use bootstrap3-datetimepicker-->
 
-<form class="form-group" role="form" action="." method="post">{%csrf_token%}
+        <div>
+            <form 
+                class="form-group" 
+                role="form" 
+                action="." 
+                method="post">{%csrf_token%}
+                     <!-- {{form.as_p}} -->
+                    {{form|bootstrap}} 
 
-    <div class="form-managing">
-        {{form.as_p}}
-    </div>
-    <button type="submit" class="btn btn-success">Update</button>
-<!--     <div>
-        <span class="input-group-addon">{{ form.Due_date.label_tag }}</span>
-        <input type="text" class="form-control" placeholder="Due_date">
-    </div>
-    <div>
-        <span class="input-group-addon">{{ form.Create_date.label_tag }}</span>
-        <input type="text" class="form-control" placeholder="Create_date">
-    </div>
-    <div>
-        <span class="input-group-addon">{{ form.Name_item.label_tag }}</span>
-        <input type="text" class="form-control" placeholder="item name">
-    </div>
-    <div>
-        <span class="input-group-addon">{{ form.Description.label_tag }}</span>
-        <input type="text" class="form-control" placeholder="Description">
-    </div>
-    <div>
-        <span class="input-group-addon">{{ form.Priority.label_tag }}</span>
-        <input type="text" class="form-control" >
-    </div>
-    <div>
-        <span class="input-group-addon">{{ form.category.label_tag }}</span>
-        <input type="dropdown-menu" class="form-control" >
-    </div>
-    <div>
-        <span class="input-group-addon">{{ form.CompleteStatus.label_tag }}</span>
-        <input type="checkbox" class="form-control" >
-    </div> -->
-</form>
-
-<form class="form-group" role="form" action="{% url "Delete_Item" slug=item.slug %}" method="post">{%csrf_token%}
-    <button type="submit" class="btn btn-danger "> Delete! </button>
-</form>
+                <button type="submit" class="btn btn-success">Update</button>
+                <a href="{% url "Delete_Item" slug=item.slug %}" class="btn btn-danger">Delete</a>
+            </form>
+        </div>
+    <script>
+    $("#id_CompleteStatus").bootstrapSwitch();
+    </script>
 
 {% endblock content %}

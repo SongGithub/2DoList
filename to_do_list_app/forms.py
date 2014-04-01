@@ -1,14 +1,14 @@
+import datetime
+
+from django import forms
 from django.forms import ModelForm, DateTimeField
 # from django.contrib.admin.widgets import AdminDateWidget
 from bootstrap3_datetime.widgets import DateTimePicker
 from to_do_list_app.models import Item
 from to_do_list_app.models import Category
-import datetime
-
-
 
 from django.contrib.admin import widgets
-from django.forms.extras.widgets import SelectDateWidget
+# from django.forms.extras.widgets import SelectDateWidget
 from django.forms import ModelForm, Form
 
 
@@ -17,11 +17,47 @@ class ItemForm(ModelForm):
     # Due_date = DateTimeField(widget=AdminDateWidget)
     # Create_date = DateTimeField(widget=AdminDateWidget)
     # Due_date = DateTimeField(widget=SelectDateWidget)
-    Due_date = DateTimeField(input_formats=['%d-%m-%Y %H:%M'],widget=DateTimePicker(options={
-    "format":"DD-MM-YYYY HH:mm","pickSeconds": False}))
+    Due_date = DateTimeField(
+        input_formats=['%d-%m-%Y %H:%M'],
+        widget=DateTimePicker(
+            options={
+                "format":"DD-MM-YYYY HH:mm",
+                "pickSeconds": False}))
     # Create_date = DateTimeField(widget=SelectDateWidget)
-    Create_date = DateTimeField(input_formats=['%d-%m-%Y %H:%M'],widget=DateTimePicker(options={
-     "format":"DD-MM-YYYY HH:mm","pickSeconds": False}))
+    Create_date = DateTimeField(
+        input_formats=['%d-%m-%Y %H:%M'],
+        widget=DateTimePicker(
+            options={
+                "format":"DD-MM-YYYY HH:mm",
+                "pickSeconds": False
+            }
+        )
+    )
+    Description = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                'rows': 3
+            }
+        )
+    )
+
+    CompleteStatus = forms.BooleanField(
+        label="Complete Status",
+        required=False,
+
+        widget=forms.CheckboxInput(
+            attrs={   
+                "data-on-text": ' Yes',
+                "data-off-text":"NO",
+                "data-size": "medium",
+                # "disabled":"true"
+                "text-lable":"haha",
+                "on":'danger',
+            }
+        )
+    )
+        
+
 
     class Meta:
         model = Item
@@ -34,7 +70,9 @@ class ItemForm(ModelForm):
             'category',
             'CompleteStatus'
         ]
-
+    def __init__(self, *args, **kwargs):
+        super(ItemForm, self).__init__(*args, **kwargs)
+        # self.fields['Description'].widget.attrs['rows'] = 3
 
 # form for add item purpose
 class AddItemForm(ModelForm):

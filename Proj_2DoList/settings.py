@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'to_do_list_app',
     'south',
     'bootstrap3_datetime',
+    'bootstrapform',
 )
 
 MIDDLEWARE_CLASSES = (

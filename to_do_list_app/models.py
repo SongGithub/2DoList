@@ -43,8 +43,10 @@ class Item(models.Model):
     Create_date = models.DateTimeField('date created', null=True, blank=True)
     Due_date = models.DateTimeField('date due', null=True, blank=True)
     Priority = models.IntegerField(choices=PRIORITY_CHOICES, default=0)
-    CompleteStatus = models.BooleanField\
-    (choices=CompleteStatus_CHOICES, default=False)
+    CompleteStatus = models.BooleanField(
+        choices=CompleteStatus_CHOICES,
+        default=False
+      )
 
     class Meta:
         verbose_name_plural = 'Items'
