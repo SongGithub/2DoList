@@ -43,10 +43,10 @@ body
 
 .page-title-nav
 {
-  font-size:100%;
+  font-size:2em;
   font-style:italic;
   text-align:center;
-  text-indent:25%;
+  /*text-indent:25%;*/
 }
 #itemviewtable
 {
@@ -82,7 +82,7 @@ footer
 {
     clear:both;
     text-align:center;
-    position:absolute;
+    position:relative;
     bottom:0;
     width:100%;
     height:60px;   /* Height of the footer */

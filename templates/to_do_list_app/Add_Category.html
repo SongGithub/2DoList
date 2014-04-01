@@ -22,7 +22,8 @@
     <div class="row">
         <div class="form-group" >
             <form class="form-group" role="form" action="." method="post" placeholder="entering here" >{% csrf_token %}  
-            {{form.as_p}}
+            <!-- {{form.as_p}} -->
+            {{form|bootstrap}} 
 
             <input type="text" class="form-control" placeholder="Search">
 

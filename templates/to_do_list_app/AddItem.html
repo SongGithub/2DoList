@@ -5,17 +5,16 @@
     Adding item in category: {{category.slug }}
 {% endblock page-title %}
 
+{% block content %}
 {% block header %}
 <title>Add item</title>
 {% endblock header %}
-
-
-{% block content %}
 <head>{{ form.media }}</head><!--this is key component to use bootstrap-datetimepicker-->
-<div class="formdiv">
 
+<div class="formdiv">
     <form class="form-group" role="form" action="{% url 'Add_Item' slug=category.slug %}" method="post"  >{%csrf_token%}
-    {{form.as_p}}
+    <!-- {{form.as_p}} -->
+    {{form|bootstrap}} 
     <button type="submit" class="btn btn-primary">Create Item</button>
     </form>
 </div>

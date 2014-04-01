@@ -36,7 +36,7 @@ class ItemForm(ModelForm):
     Description = forms.CharField(
         widget=forms.Textarea(
             attrs={
-                'rows': 3
+                # 'rows': 3
             }
         )
     )
@@ -57,8 +57,6 @@ class ItemForm(ModelForm):
             }
         )
     )
-        
-
 
     class Meta:
         model = Item
@@ -71,9 +69,6 @@ class ItemForm(ModelForm):
             'category',
             'CompleteStatus'
         ]
-    def __init__(self, *args, **kwargs):
-        super(ItemForm, self).__init__(*args, **kwargs)
-        # self.fields['Description'].widget.attrs['rows'] = 3
 
 # form for add item purpose
 class AddItemForm(ModelForm):
@@ -82,6 +77,13 @@ class AddItemForm(ModelForm):
     
     Due_date = DateTimeField(input_formats=['%d-%m-%Y %H:%M'],widget=DateTimePicker(options={
     "format":"DD-MM-YYYY HH:mm","pickSeconds": False}))
+    Description = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                # 'rows': 3
+            }
+        )
+    )
     #WANTED
     # auto define current date, and display on the page
     #auto define current category
@@ -118,6 +120,13 @@ class CategoryForm(ModelForm):
             'Name_category',
             'Description_category'
         ]
+    Description_category = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                # 'rows': 3
+            }
+        )
+    )
 
 
 class AddCategoryForm(ModelForm):
@@ -127,3 +136,10 @@ class AddCategoryForm(ModelForm):
                 'Name_category',
                 'Description_category'
             ]
+        Description_category = forms.CharField(
+            widget=forms.Textarea(
+            attrs={
+                # 'rows': 3
+            }
+        )
+    )
