@@ -42,17 +42,18 @@ class ItemForm(ModelForm):
     )
 
     CompleteStatus = forms.BooleanField(
-        label="Complete Status",
+        label="<<--Complete Status",
         required=False,
 
         widget=forms.CheckboxInput(
             attrs={   
                 "data-on-text": ' Yes',
                 "data-off-text":"NO",
-                "data-size": "medium",
+                "data-size": "large",
                 # "disabled":"true"
-                "text-lable":"haha",
-                "on":'danger',
+                # "data-label-text":"haha",
+                "data-on-color":'primary',
+                "data-off-color":"danger",
             }
         )
     )
