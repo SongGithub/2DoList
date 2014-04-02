@@ -41,21 +41,29 @@ class ItemForm(ModelForm):
         )
     )
 
-    CompleteStatus = forms.BooleanField(
-        label="<<--Complete Status",
-        required=False,
+    # CompleteStatus = forms.BooleanField(
+    #     label="<<--Complete Status",
+    #     required=False,
 
-        widget=forms.CheckboxInput(
-            attrs={   
-                "data-on-text": ' Yes',
-                "data-off-text":"NO",
-                "data-size": "large",
-                # "disabled":"true"
-                # "data-label-text":"haha",
-                "data-on-color":'primary',
-                "data-off-color":"danger",
-            }
-        )
+    #     widget=forms.CheckboxInput(
+    #         attrs={   
+    #             "data-on-text": ' Yes',
+    #             "data-off-text":"NO",
+    #             "data-size": "large",
+    #             # "disabled":"true"
+    #             # "data-label-text":"haha",
+    #             "data-on-color":'primary',
+    #             "data-off-color":"danger",
+    #         }
+    #     )
+    # )
+    CompleteStatus = forms.BooleanField(
+        required=False,
+        widget=forms.HiddenInput()
+    )
+
+    Priority = forms.CharField(
+        widget=forms.HiddenInput()
     )
 
     class Meta:

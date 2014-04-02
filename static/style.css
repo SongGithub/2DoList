@@ -1,0 +1,90 @@
+body
+{
+  
+}
+.container
+{
+
+}
+
+#headnav
+{
+  /*max-height: 50px*/
+}
+/*
+.form-group
+{
+   margin-left:25%;
+   margin-right:100%;
+   width:50%;
+}*/
+.bootstrap-switch
+{
+  /*max-width: 50px;*/
+  max-height: 12%;
+  width: 200%
+  margin-left:auto;
+  margin-right:auto;
+}
+.checkbox
+{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.bootstrap-switch-container
+{
+
+}
+.container-fluid
+{
+  
+}
+
+.page-title-nav
+{
+  font-size:2em;
+  font-style:italic;
+  text-align:center;
+  /*text-indent:25%;*/
+}
+#itemviewtable
+{
+  margin-left:10%;
+  margin-right: 10%;
+  /*background-color:yellow;*/
+}
+#indexview
+{
+  margin-left:10%;
+  margin-right: 10%;
+  /*background-color:yellow;*/
+}
+
+
+h1,h2
+{
+  text-align:center;
+}
+
+form
+{
+  
+}
+
+
+a.btn btn-info
+{
+  margin-right: 249px;
+}
+
+footer 
+{
+    clear:both;
+    text-align:center;
+    position:relative;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    /*background:#6cf;*/
+}

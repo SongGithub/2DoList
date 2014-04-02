@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'south',
     'bootstrap3_datetime',
     'bootstrapform',
+    # 'css-toggle-switch',
 )
 
 MIDDLEWARE_CLASSES = (
