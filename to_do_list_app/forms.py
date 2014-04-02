@@ -11,6 +11,11 @@ from django.contrib.admin import widgets
 # from django.forms.extras.widgets import SelectDateWidget
 from django.forms import ModelForm, Form
 
+class markcompleteform(ModelForm):
+    CompleteStatus = forms.BooleanField(
+        required=False,
+        widget=forms.HiddenInput()
+    )
 
 # form for item management purpose
 class ItemForm(ModelForm):

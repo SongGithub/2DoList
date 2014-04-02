@@ -16,14 +16,16 @@
         <th>Desciption</th>
         <th>Due Date</th>
         <th>Priority</th>
-        <th>Complete Status</th>    
-        <th>Actions?</th>
+        <th>Complete Status</th>
+        <th>Complete?</th>    
+        <th>Edit?</th>
+        
     </tr>
     {% for item in Item_List %}
     <tr>
         <td>
             <a href=
-            "{% url 'manage-item' item.slug %}" >
+            "{% url 'manage-item' item.slug %}" class="btn btn-primary">
             {{item.Name_item}}
             </a>
         </td>
@@ -32,6 +34,8 @@
         <td>{{ item.Due_date }}</td>
         <td>{{ item.get_Priority_display }}</td>
         <td>{{ item.get_CompleteStatus_display }}</td>
+        <td><a href="{% url 'mark-item' item.slug %}" class="btn btn-success" >Mark Complete
+                        </a></td>
         <td>
             <div class="btn-group">
                   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
@@ -46,19 +50,11 @@
                         <a href="{% url 'manage-item' item.slug %}">Edit</a>
                     </li>
 
-                    <li>
-                        <form action="{% url 'manage-item' item.slug %}" method="POST" >{%csrf_token%}
-                            <input type="hidden" name = "CompleteStatus" value= "1">
-                            <input type="submit" class="btn btn-primary btn-lg btn-info" value="Mark it"/>
-                        </form>
-                        <!-- <a href="{% url 'manage-item' item.slug %}">Mark as Completed</a> -->
-
-                    </li>
-
                     
                   </ul>
                 </div>
         </td>
+                    
     </tr>
 {% endfor %}
 </table>

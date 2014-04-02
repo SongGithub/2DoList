@@ -15,7 +15,7 @@
 
     {% for category in Cate_List %}
     <tr>
-        <td><a href="{% url 'item-of-category-view' category.slug %}" 
+        <td><a href="{% url 'item-of-category-view' category.slug %}"  class="btn btn-primary"
             >{{category}}</a></td>
         <td>{{category.Description_category}}</td>
         <td>

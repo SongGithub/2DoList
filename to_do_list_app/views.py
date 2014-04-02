@@ -9,6 +9,7 @@ from to_do_list_app.forms import ItemForm
 from to_do_list_app.forms import AddItemForm
 from to_do_list_app.forms import CategoryForm
 from to_do_list_app.forms import AddCategoryForm
+from to_do_list_app.forms import markcompleteform
 
 
 class Category_ListView(generic.ListView):
@@ -160,3 +161,16 @@ class Manage_Item(generic.UpdateView):
              }
             )
 
+class MarkItemComplete(generic.RedirectView):
+    model = Item
+    def get_redirect_url(self, *args, **kwargs):
+        item = get_object_or_404(self.model, slug=kwargs['slug'])
+        item.CompleteStatus = True
+        item.save()
+
+        return reverse(
+            'item-of-category-view',
+            kwargs={
+                'slug': item.category.slug
+            }
+        )
