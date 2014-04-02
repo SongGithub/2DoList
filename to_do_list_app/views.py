@@ -163,6 +163,7 @@ class Manage_Item(generic.UpdateView):
 
 class MarkItemComplete(generic.RedirectView):
     model = Item
+    permanent = False
     def get_redirect_url(self, *args, **kwargs):
         item = get_object_or_404(self.model, slug=kwargs['slug'])
         item.CompleteStatus = True
