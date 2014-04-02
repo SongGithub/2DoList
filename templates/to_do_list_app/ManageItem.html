@@ -22,8 +22,10 @@
                 method="post">{%csrf_token%}
                      <!-- {{form.as_p}} -->
                     {{form|bootstrap}} 
-            
-
+        <div class"container-fluid">    
+        <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
             <label>Priority</label>
               <div class="switch-toggle switch-3 well">
                 <input id="low" name="view" type="radio">
@@ -47,12 +49,15 @@
 
                 <a class="btn btn-primary"></a>
             </div>
-
+          </div>
+          <div class="col-md-6"></div>  
+        </div>
                 <button type="submit" class="btn btn-success">Update</button>
                 <a href="{% url "Delete_Item" slug=item.slug %}" class="btn btn-danger">Delete</a>
             </form>
-            
-        </div>
+          
+    </div>
+    </div>
     <script>
     // $("#id_CompleteStatus").bootstrapSwitch();
     // following script pre-sets value of 'priority' according to its current status
