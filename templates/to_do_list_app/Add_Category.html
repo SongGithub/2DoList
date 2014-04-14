@@ -21,10 +21,10 @@
 <div class="container" id="add-cate">
     <div class="row">
         <div class="form-group" >
-            <form class="form-group" role="form" action="." method="post" placeholder="entering here" >{% csrf_token %}  
+            <form class="form-group" role="form" method="post" >{% csrf_token %}  
             <!-- {{form.as_p}} -->
             {{form|bootstrap}} 
-        </div>
+   
             <button type="submit" class="btn btn-primary btn-info">Create Category</button>
             </form>
         </div>

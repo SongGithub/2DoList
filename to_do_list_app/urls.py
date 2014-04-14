@@ -6,30 +6,36 @@ from django.shortcuts import redirect
 
 urlpatterns = patterns('',
                        
-                       url(r'^index/managecategory/$',
-                           views.Add_Category.as_view(),
-                           name="managecategory"),
+
                        url(r'^index/$',
                            views.Category_ListView.as_view(),
-                           name='Category-summary-view'),
-                       url(r'^view-items-of-category/(?P<slug>[\w-]+)/$',
+                           name='Category-summary-view'),                    
+                       url(r'^category/add',
+                           views.Add_Category.as_view(),
+                           name="managecategory"),                   
+                       url(r'^(?P<slug>[\w-]+)/edit',
+                           views.Manage_Category.as_view(),
+                           name="manage-category-of"),                   
+                       url(r'^(?P<slug>[\w-]+)/Delete',
+                           views.Delete_Category.as_view(),
+                           name="Delete_Category"),                                         
+                       url(r'^(?P<slug>[\w-]+)/$',
                            views.Item_perCategory_ListView.as_view(),
                            name='item-of-category-view'),
-                       url(r'^view-items-of-category/(?P<slug>[\w-]+)/Add',
+                       
+                       url(r'^(?P<slug>[\w-]+)/Add',
                            views.Add_Item.as_view(), name="Add_Item"),
-                       url(r'^view-items-of-category/(?P<slug>[\w-]+)/Back/$',
-                           views.Category_ListView.as_view(),
-                           name='Go-Back-Category-summary-view'),
+#slug for category needed for 'manage':
+                       url(r'^(?P<cateslug>[\w-]+)/(?P<slug>[\w-]+)/Manage',
+                           views.Manage_Item.as_view(), name="manage-item"),
+                       
+                       # url(r'^(?P<slug>[\w-]+)/Back/$',
+                       #     views.Category_ListView.as_view(),
+                       #     name='Go-Back-Category-summary-view'),
+                       
                        url(r'^manage-item-of/(?P<slug>[\w-]+)/Delete/$',
                            views.Delete_Item.as_view(), name="Delete_Item"),
-                       url(r'^manage-category-of/(?P<slug>[\w-]+)/Delete/$',
-                           views.Delete_Category.as_view(),
-                           name="Delete_Category"),
-                       url(r'^manage-item-of/(?P<slug>[\w-]+)/$',
-                           views.Manage_Item.as_view(), name="manage-item"),
-                       url(r'^manage-category-of/(?P<slug>[\w-]+)/$',
-                           views.Manage_Category.as_view(),
-                           name="manage-category-of"),
+                    
                        url(r'^manage-item-of/(?P<slug>[\w-]+)/mark/$',
                            views.MarkItemComplete.as_view(),
                            name="mark-item"),
@@ -37,9 +43,11 @@ urlpatterns = patterns('',
                           views.Category_ListView.as_view(),
                            name='Category-summary-view'),
                        )
+                       
 
+#Under renovation since 14Apr
 
-# /
+# 'URL layout design guide'
 # /<category_slug>/
 # /<category_slug>/add/
 # /<category_slug>/delete/
@@ -47,27 +55,4 @@ urlpatterns = patterns('',
 # /<category_slug>/<item_slug>/
 # /<category_slug>/<item_slug>/add/
 # /<category_slug>/<item_slug>/delete/
-# /<category_slug>/<item_slug>/edit/
-
-# REST API
-# --------
-
-# GET A LIST OF categories
-
-#   GET /categories/
-
-# CREATE NEW
-#   POST /categories/ 
-
-# Fetch
-
-#   GET /categories/<slug>/
-
-# Delete
-
-#   DELETE /categories/<slug>/
-
-# UPDATE
-
-#   PUT /categories/<slug>/
-# >>>>>>> cdd3ff54bd4100e5f45d889c825b1d236b6b48fd
+# /<category_slug>/<item_slug>/Manage/

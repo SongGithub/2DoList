@@ -14,67 +14,68 @@
     <head>{{ form.media }}</head><!--this is key component to use bootstrap3-datetimepicker-->
 
 
-        <div>
-            <form 
-                class="form-group" 
-                role="form" 
-                action="." 
-                method="post">{%csrf_token%}
+<div>
+    <form 
+        class="form-group" 
+        role="form" 
+       
+        method="post">{%csrf_token%}
                      <!-- {{form.as_p}} -->
-                    {{form|bootstrap}} 
-        <div class"container-fluid">    
-        <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <label>Priority</label>
-              <div class="switch-ios switch-toggle switch-3 well">
-                <input id="low" name="view" type="radio">
-                <label for="low" onclick="$('#id_Priority').val(0)">!</label>
+        {{form|bootstrap}} 
+        <div class"container-fluid">    <!--This container controls width of toogle-->
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <label>Priority</label>
+                            <div class="switch-ios switch-toggle switch-3 well">
+                                <input id="low" name="view" type="radio">
+                                <label for="low" onclick="$('#id_Priority').val(0)">!</label>
 
-                <input id="medium" name="view" type="radio">
-                <label for="medium" onclick="$('#id_Priority').val(1)">!!</label>
+                                <input id="medium" name="view" type="radio">
+                                <label for="medium" onclick="$('#id_Priority').val(1)">!!</label>
 
-                <input id="high" name="view" type="radio">
-                <label for="high" onclick="$('#id_Priority').val(2)">!!!</label>
+                                <input id="high" name="view" type="radio">
+                                <label for="high" onclick="$('#id_Priority').val(2)">!!!</label>
 
-                <a class="btn btn-primary"></a>
-            </div>
-            <label>Complete Status</label>
-            <div class="switch-ios switch-toggle switch-2 well">
-                <input id="yes" name="complete-switch" type="radio">
-                <label for="yes" onclick="$('#id_CompleteStatus').val('True')">Completed</label>
+                                <a class="btn btn-primaryp"></a>
+                            </div>
+                            <label>Complete Status</label>
+                            <div class="switch-ios switch-toggle switch-2 well">
+                                    <input id="yes" name="complete-switch" type="radio">
+                                    <label for="yes" onclick="$('#id_CompleteStatus').val('True')">Completed</label>
 
-                <input id="not" name="complete-switch" type="radio">
-                <label for="not" onclick="$('#id_CompleteStatus').val('False')">Yet Completed</label>
+                                    <input id="not" name="complete-switch" type="radio">
+                                    <label for="not" onclick="$('#id_CompleteStatus').val('False')">Yet Completed</label>
 
-                <a class="btn btn-primary"></a>
-            </div>
-          </div>
-          <div class="col-md-6"></div>  
-        </div>
-                <button type="submit" class="btn btn-success">Update</button>
-                <a href="{% url "Delete_Item" slug=item.slug %}" class="btn btn-danger">Delete</a>
-            </form>
-          
-    </div>
-    </div>
+                                    <a class="btn btn-primary"></a>
+                            </div>
+                        </div>
+                      <div class="col-md-3"></div>  
+                    </div>
+                            <button type="submit" class="btn btn-success">Update</button>
+                            <a href="{% url "Delete_Item" slug=item.slug %}" class="btn btn-danger">Delete</a>
+        </div><!--end of container-->
+    </form>
+      
+    
+</div>
     <script>
-    // $("#id_CompleteStatus").bootstrapSwitch();
-    // following script pre-sets value of 'priority' according to its current status
-    if ($('#id_Priority').val() == 0) {
-        $('#low').prop('checked', true);
-    } else if($('#id_Priority').val() == 1) {
-        $('#medium').prop('checked', true);
-    } else if ($('#id_Priority').val() == 2) {
-        $('#high').prop('checked', true);
-    };
+        // $("#id_CompleteStatus").bootstrapSwitch();
+        // following script pre-sets value of 'priority' according to its current status
+        if ($('#id_Priority').val() == 0) {
+            $('#low').prop('checked', true);
+        } else if($('#id_Priority').val() == 1) {
+            $('#medium').prop('checked', true);
+        } else if ($('#id_Priority').val() == 2) {
+            $('#high').prop('checked', true);
+        };
 
-    if ($('#id_CompleteStatus').val() == "True") {
-        $('#yes').prop('checked', true);
-    }
-    else if($('#id_CompleteStatus').val() == "False") {
-        $('#not').prop('checked', true);
-    }
+        if ($('#id_CompleteStatus').val() == "True") {
+            $('#yes').prop('checked', true);
+        }
+        else if($('#id_CompleteStatus').val() == "False") {
+            $('#not').prop('checked', true);
+        }
 
     </script>
 

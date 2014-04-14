@@ -64,8 +64,8 @@ class Delete_Category(generic.DeleteView):
 class Add_Category(generic.CreateView):
     model = Category
     template_name = 'to_do_list_app/Add_Category.html'
-
     form_class=AddCategoryForm
+
     def get_success_url(self):
     #generate success url after update button is hit.
         return reverse(
@@ -121,9 +121,21 @@ class Add_Item(generic.CreateView):
         )
 
 
-class Delete_Item(generic.DeleteView):
+# class Delete_Item(generic.DeleteView): 
+'''when need delete confirmation page, use delect view but not the funcion'''
+class Delete_Item(generic.RedirectView):
     model = Item
+    def get_redirect_url(self, *args, **kwargs):
+        item = get_object_or_404(self.model, slug=kwargs['slug'])
+        # item.CompleteStatus = True
+        item.delete()
 
+        return reverse(
+            'item-of-category-view',
+            kwargs={
+                'slug': item.category.slug
+            }
+        )
     def get_success_url(self):
     #generate success url after update button is hit
         return reverse(
@@ -142,6 +154,9 @@ class Manage_Item(generic.UpdateView):
     def get_slug(self):
         return self.kwargs.get('slug')
 
+    # def get_cateslug(self):
+    #     return self.kwargs.get('cates')
+
     def get_queryset(self):
         return Item.objects.filter(slug=self.get_slug())
         # double underscore?
@@ -150,6 +165,7 @@ class Manage_Item(generic.UpdateView):
         ctx = super(Manage_Item, self).get_context_data(**kwargs)
         #'super'
         ctx['slug'] = self.get_slug()
+        # ctx['cates']=self.get_cateslug()
         return ctx
 
     def get_success_url(self):

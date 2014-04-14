@@ -13,6 +13,7 @@
     <tr class="info">
         <th>Item name</th>
         <!-- <th>Item nickname</th> -->
+        
         <th>Desciption</th>
         <th>Due Date</th>
         <th>Priority</th>
@@ -25,7 +26,7 @@
     <tr>
         <td>
             <a href=
-            "{% url 'manage-item' item.slug %}" class="btn btn-primary">
+            "{% url 'manage-item' cateslug=slug slug=item.slug  %}" class="btn btn-primary">
             {{item.Name_item}}
             </a>
         </td>
@@ -47,7 +48,7 @@
                         <a href="{% url "Delete_Item" slug=item.slug %}" type="submit">Delete</a>
                     </li>
                     <li>
-                        <a href="{% url 'manage-item' item.slug %}">Edit</a>
+                        <a href="{% url 'manage-item' cateslug=slug slug=item.slug  %}">Edit</a>
                     </li>
 
                     
